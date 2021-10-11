@@ -7,17 +7,23 @@ submitButton.addEventListener("click", function () {
     myLeads.push(inputEl.value);
     console.log(myLeads);
     inputEl.value = '';
-    updateList();
+    renderLeads();
 });
 
-function updateList() {
+function renderLeads() {
     ulEl.innerHTML = '';
+    let listItems = '';
     for (let lead of myLeads) {
-        ulEl.innerHTML += `<li>${lead}</li>`
-        // const li = document.createElement('li');
-        // li.textContent = lead;
-        // ulEl.append(li);
+        listItems += `
+            <li>
+                <a href="https://${lead}" target="_blank">
+                    ${lead}
+                </a>
+            </li>
+        `;
     }
+    ulEl.innerHTML += listItems;
+
 }
 
 
